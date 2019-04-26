@@ -17,6 +17,8 @@ Plug 'bling/vim-airline'
 
 " Utils
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Syntax
 Plug 'scrooloose/syntastic'
@@ -88,6 +90,7 @@ set smartcase
 set ignorecase
 set incsearch
 set hlsearch
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 
 " ============== UI settings ==============
 set background=dark
